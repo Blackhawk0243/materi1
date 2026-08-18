@@ -39,6 +39,74 @@
             padding: 1.5rem;
             overflow-x: auto;
         }
+
+        /* --- Animasi Kunci Jawaban (Meniru Tampilan Asli Scratch) --- */
+        .scratch-stage {
+            width: 100%;
+            max-width: 280px;
+            aspect-ratio: 4/3;
+            background-color: #ffffff;
+            border: 1px solid #d9d9d9;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .scratch-cat {
+            width: 55px;
+            height: auto;
+            position: absolute;
+            bottom: 25%;
+            left: 10%;
+            z-index: 10;
+        }
+        .scratch-speech {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-20%);
+            background: white;
+            border: 2px solid #d0d0d0;
+            border-radius: 12px;
+            padding: 5px 12px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            color: #575e75;
+            white-space: nowrap;
+            opacity: 0;
+        }
+        .scratch-speech::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 10px;
+            border: 6px solid transparent;
+            border-top-color: #d0d0d0;
+        }
+        .scratch-speech::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 12px;
+            border: 4px solid transparent;
+            border-top-color: white;
+            margin-top: -3px;
+        }
+
+        @keyframes catMoveRight { 0% { transform: translateX(0); } 100% { transform: translateX(220px); } }
+        .anim-cat-move { animation: catMoveRight 2.5s infinite linear; }
+
+        @keyframes catTouchApple { 0%, 100% { transform: translateX(0); } 30%, 70% { transform: translateX(130px); } }
+        @keyframes sayNyamm { 0%, 29%, 71%, 100% { opacity: 0; } 30%, 70% { opacity: 1; } }
+        .anim-cat-apple { animation: catTouchApple 4s infinite linear; }
+        .anim-speech { animation: sayNyamm 4s infinite step-start; }
+
+        @keyframes catTouchRed { 0% { transform: translateX(0); } 49% { transform: translateX(180px); } 50%, 100% { transform: translateX(0); } }
+        .anim-cat-red { animation: catTouchRed 3.5s infinite linear; }
+
+        @keyframes catCostume { 0%, 49% { transform: scale(1); } 50%, 100% { transform: scaleX(-1) rotate(-15deg); } }
+        .anim-cat-costume { animation: catCostume 1s infinite step-end; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 leading-relaxed">
@@ -198,19 +266,19 @@ end
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 <!-- Praktik 1 -->
-                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50">
+                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50 flex flex-col">
                     <div class="flex items-center gap-3 mb-3">
                         <span class="text-3xl">⌨️</span>
                         <h3 class="text-xl font-bold text-gray-900">Praktik 1: Menggerakkan Karakter</h3>
                     </div>
-                    <p class="text-gray-700 mb-3">Buat agar karakter bergerak ke kanan setiap kali kita menekan tombol panah kanan di keyboard.</p>
+                    <p class="text-gray-700 mb-3 flex-grow">Buat agar karakter bergerak ke kanan setiap kali kita menekan tombol panah kanan di keyboard.</p>
                     <div class="bg-white p-3 rounded border border-gray-200 font-mono text-sm mb-3">
                         <span class="font-bold text-purple-700">Logika:</span><br>
                         JIKA [Tombol Panah Kanan Ditekan]<br>MAKA [Bergerak maju / Ubah X sebesar 10]
                     </div>
-                    <div class="mt-4">
+                    <div class="mt-auto">
                         <p class="font-bold text-sm text-gray-600 mb-2">Bentuk Blok Asli:</p>
-                        <div class="scratch-wrapper border border-gray-200">
+                        <div class="scratch-wrapper border border-gray-200 mb-4">
                             <pre class="blocks">
 when green flag clicked
 forever
@@ -220,23 +288,31 @@ forever
 end
                             </pre>
                         </div>
+                        <!-- Kunci Jawaban Simulasi -->
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                            <p class="font-bold text-sm text-blue-800 mb-2">🎯 Hasil Akhir (Stage Scratch):</p>
+                            <div class="scratch-stage shadow-inner">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Scratch_cat_large.png/200px-Scratch_cat_large.png" alt="Scratch Cat" class="scratch-cat anim-cat-move">
+                                <span class="absolute top-2 right-2 text-gray-400 text-xs font-bold animate-pulse">Tekan ➡️</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Praktik 2 -->
-                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50">
+                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50 flex flex-col">
                     <div class="flex items-center gap-3 mb-3">
                         <span class="text-3xl">🍎</span>
                         <h3 class="text-xl font-bold text-gray-900">Praktik 2: Reaksi Menyentuh Benda</h3>
                     </div>
-                    <p class="text-gray-700 mb-3">Tambahkan karakter Apel. Buat agar Kucing memunculkan teks balon "Nyamm!" saat menyentuh Apel.</p>
+                    <p class="text-gray-700 mb-3 flex-grow">Tambahkan karakter Apel. Buat agar Kucing memunculkan teks balon "Nyamm!" saat menyentuh Apel.</p>
                     <div class="bg-white p-3 rounded border border-gray-200 font-mono text-sm mb-3">
                         <span class="font-bold text-purple-700">Logika:</span><br>
                         JIKA [Menyentuh Apel]<br>MAKA [Katakan "Nyamm!" selama 2 detik]
                     </div>
-                    <div class="mt-4">
+                    <div class="mt-auto">
                         <p class="font-bold text-sm text-gray-600 mb-2">Bentuk Blok Asli:</p>
-                        <div class="scratch-wrapper border border-gray-200">
+                        <div class="scratch-wrapper border border-gray-200 mb-4">
                             <pre class="blocks">
 when green flag clicked
 forever
@@ -246,23 +322,39 @@ forever
 end
                             </pre>
                         </div>
+                        <!-- Kunci Jawaban Simulasi -->
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                            <p class="font-bold text-sm text-blue-800 mb-2">🎯 Hasil Akhir (Stage Scratch):</p>
+                            <div class="scratch-stage shadow-inner">
+                                <div class="scratch-cat anim-cat-apple">
+                                    <div class="scratch-speech anim-speech">Nyamm!</div>
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Scratch_cat_large.png/200px-Scratch_cat_large.png" alt="Scratch Cat" class="w-full h-auto">
+                                </div>
+                                <!-- Sprite Apel Scratch buatan via SVG -->
+                                <svg class="absolute bottom-[25%] left-[180px] w-10 h-10" viewBox="0 0 100 100">
+                                    <path d="M50 85 C20 85, 10 55, 30 35 C40 25, 50 30, 50 30 C50 30, 60 25, 70 35 C90 55, 80 85, 50 85 Z" fill="#ff4d4d"/>
+                                    <path d="M50 30 Q55 15 65 10" stroke="#5c4033" stroke-width="4" fill="none"/>
+                                    <path d="M60 20 Q70 15 75 25 Q65 30 60 20" fill="#4dff4d"/>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Praktik 3 -->
-                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50">
+                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50 flex flex-col">
                     <div class="flex items-center gap-3 mb-3">
                         <span class="text-3xl">🌋</span>
                         <h3 class="text-xl font-bold text-gray-900">Praktik 3: Menghindari Bahaya</h3>
                     </div>
-                    <p class="text-gray-700 mb-3">Gambar kotak merah (sebagai lava). Jika karakter menginjak warna merah, ia akan otomatis pindah kembali ke titik awal.</p>
+                    <p class="text-gray-700 mb-3 flex-grow">Gambar kotak merah (sebagai lava). Jika karakter menginjak warna merah, ia akan otomatis pindah kembali ke titik awal (X:0, Y:0).</p>
                     <div class="bg-white p-3 rounded border border-gray-200 font-mono text-sm mb-3">
                         <span class="font-bold text-purple-700">Logika:</span><br>
                         JIKA [Menyentuh warna Merah]<br>MAKA [Pergi ke X: 0, Y: 0]
                     </div>
-                    <div class="mt-4">
+                    <div class="mt-auto">
                         <p class="font-bold text-sm text-gray-600 mb-2">Bentuk Blok Asli:</p>
-                        <div class="scratch-wrapper border border-gray-200">
+                        <div class="scratch-wrapper border border-gray-200 mb-4">
                             <pre class="blocks">
 when green flag clicked
 forever
@@ -272,23 +364,32 @@ forever
 end
                             </pre>
                         </div>
+                        <!-- Kunci Jawaban Simulasi -->
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                            <p class="font-bold text-sm text-blue-800 mb-2">🎯 Hasil Akhir (Stage Scratch):</p>
+                            <div class="scratch-stage shadow-inner">
+                                <span class="absolute left-2 top-2 text-[10px] text-gray-400 font-mono bg-gray-100 px-1 rounded z-0">x:0, y:0</span>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Scratch_cat_large.png/200px-Scratch_cat_large.png" alt="Scratch Cat" class="scratch-cat anim-cat-red">
+                                <div class="absolute right-0 top-0 bottom-0 w-10 bg-[#ff0000] opacity-90"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Praktik 4 -->
-                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50">
+                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50 flex flex-col">
                     <div class="flex items-center gap-3 mb-3">
                         <span class="text-3xl">🎭</span>
                         <h3 class="text-xl font-bold text-gray-900">Praktik 4: Animasi Ganti Kostum</h3>
                     </div>
-                    <p class="text-gray-700 mb-3">Setiap kali layar diklik menggunakan mouse, karakter akan berganti gaya (berganti kostum).</p>
+                    <p class="text-gray-700 mb-3 flex-grow">Setiap kali layar diklik menggunakan mouse, karakter akan berganti gaya (berganti kostum hewan lain).</p>
                     <div class="bg-white p-3 rounded border border-gray-200 font-mono text-sm mb-3">
                         <span class="font-bold text-purple-700">Logika:</span><br>
                         JIKA [Mouse diklik (mouse down)]<br>MAKA [Ganti ke kostum berikutnya]
                     </div>
-                    <div class="mt-4">
+                    <div class="mt-auto">
                         <p class="font-bold text-sm text-gray-600 mb-2">Bentuk Blok Asli:</p>
-                        <div class="scratch-wrapper border border-gray-200">
+                        <div class="scratch-wrapper border border-gray-200 mb-4">
                             <pre class="blocks">
 when green flag clicked
 forever
@@ -297,6 +398,16 @@ forever
   end
 end
                             </pre>
+                        </div>
+                        <!-- Kunci Jawaban Simulasi -->
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                            <p class="font-bold text-sm text-blue-800 mb-2">🎯 Hasil Akhir (Stage Scratch):</p>
+                            <div class="scratch-stage shadow-inner cursor-pointer hover:bg-gray-50 transition-colors flex items-center justify-center">
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+                                    <span class="text-xs text-gray-400 font-bold uppercase tracking-widest animate-pulse mt-20">Klik Stage 🖱️</span>
+                                </div>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Scratch_cat_large.png/200px-Scratch_cat_large.png" alt="Scratch Cat" class="w-16 h-auto anim-cat-costume z-10 relative">
+                            </div>
                         </div>
                     </div>
                 </div>
