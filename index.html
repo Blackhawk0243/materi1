@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Pemrograman: Scratch dan Logika IF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        .highlight { 
+            background-color: #fef08a; 
+            padding: 0 6px; 
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* Rasio 16:9 untuk YouTube */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 leading-relaxed">
+
+    <header class="bg-blue-700 text-white py-8 shadow-md">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-3xl md:text-4xl font-bold mb-2">Media Pembelajaran Interaktif</h1>
+            <p class="text-lg md:text-xl text-blue-100">Materi: Membuat Akun Scratch & Teori Logika "IF"</p>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-8">
+
+        <section class="bg-white p-6 md:p-8 rounded-xl shadow-sm mb-10 border border-gray-200">
+            <h2 class="text-2xl md:text-3xl font-bold text-blue-700 border-b-2 border-blue-200 pb-3 mb-6">
+                1. Cara Membuat Akun Scratch
+            </h2>
+            
+            <p class="mb-6 text-lg">Scratch adalah situs web untuk belajar membuat animasi dan game. Untuk menyimpan hasil karya, kita perlu membuat akun terlebih dahulu.</p>
+
+            <div class="space-y-8">
+                <!-- Langkah 1 -->
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <div class="md:w-1/2">
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Langkah 1: Buka Situs Scratch</h3>
+                        <p class="text-gray-700 mb-2">Ketik <span class="font-mono bg-gray-100 px-2 py-1 rounded text-blue-600">scratch.mit.edu</span> di peramban (browser) Anda.</p> 
+                        <p class="text-gray-700">Setelah halaman terbuka, cari dan klik tombol <strong class="text-blue-700">"Join Scratch"</strong> (Bergabung) di sudut kanan atas.</p>
+                    </div>
+                    <div class="md:w-1/2 w-full">
+                        <img src="https://placehold.co/600x400/2563eb/ffffff?text=Klik+Tombol+%22Join+Scratch%22" 
+                             alt="Ilustrasi tombol Join Scratch warna biru" 
+                             class="w-full rounded-lg border border-gray-300 shadow-sm object-cover">
+                    </div>
+                </div>
+
+                <hr class="border-gray-200">
+
+                <!-- Langkah 2 -->
+                <div class="flex flex-col md:flex-row gap-6 items-start">
+                    <div class="md:w-1/2">
+                        <h3 class="text-xl font-bold mb-2 text-gray-900">Langkah 2: Buat Akun</h3>
+                        <ul class="list-disc pl-5 space-y-3 text-gray-700">
+                            <li>Buat <strong>Nama Pengguna (Username)</strong>. Hindari menggunakan nama asli Anda untuk keamanan.</li>
+                            <li>Buat <strong>Kata Sandi (Password)</strong> yang mudah diingat oleh Anda, tetapi sulit ditebak orang lain.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 w-full">
+                        <img src="https://placehold.co/600x400/f3f4f6/1f2937?text=Formulir+Username+dan+Password" 
+                             alt="Ilustrasi formulir pendaftaran Scratch" 
+                             class="w-full rounded-lg border border-gray-300 shadow-sm object-cover">
+                    </div>
+                </div>
+
+                <!-- Video Tutorial Bagian 1 -->
+                <div class="bg-blue-50 p-6 md:p-8 rounded-xl border border-blue-100 mt-4">
+                    <h3 class="text-xl font-bold mb-2 text-blue-900">🎥 Video Panduan: Membuat Akun</h3>
+                    <p class="mb-4 text-blue-800">Tonton video di bawah ini. Pastikan Anda menyalakan fitur Teks Terjemahan <strong>[CC]</strong> di sudut kanan bawah pemutar video.</p>
+                    
+                    <div class="video-container shadow-md border border-gray-300">
+                        <!-- Video YouTube dengan parameter cc_load_policy=1 agar CC nyala otomatis -->
+                        <iframe src="https://www.youtube.com/embed/UWsAzoOoUKk?cc_load_policy=1&hl=id&rel=0" 
+                                title="Tutorial Membuat Akun Scratch" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white p-6 md:p-8 rounded-xl shadow-sm mb-10 border border-gray-200">
+            <h2 class="text-2xl md:text-3xl font-bold text-green-700 border-b-2 border-green-200 pb-3 mb-6">
+                2. Memahami Logika "IF" (JIKA)
+            </h2>
+            
+            <p class="mb-4 text-lg">Dalam pemrograman, kita sering menggunakan kata <strong>IF</strong>. Dalam bahasa Indonesia, IF berarti <strong>JIKA</strong>.</p>
+            <p class="mb-6 text-lg">Kita menggunakan "IF" agar komputer bisa mengambil <span class="highlight">keputusan</span> otomatis berdasarkan suatu kondisi tertentu.</p>
+
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Konsep Dasar</h3>
+            <div class="bg-gray-800 text-green-400 p-5 rounded-lg border-l-4 border-green-500 mb-8 font-mono text-lg md:text-xl shadow-inner">
+                JIKA [Kondisi Terjadi] MAKA [Lakukan Sesuatu]
+            </div>
+
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Contoh di Kehidupan Nyata:</h3>
+            <div class="overflow-x-auto mb-8">
+                <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200">
+                    <thead class="bg-green-100 text-green-900">
+                        <tr>
+                            <th class="py-3 px-5 font-bold">JIKA (Kondisi yang terjadi)</th>
+                            <th class="py-3 px-5 font-bold">MAKA (Tindakan yang dilakukan)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-4 px-5 text-gray-700">Hujan turun dari langit</td>
+                            <td class="py-4 px-5 text-gray-700">Saya membuka payung</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-4 px-5 text-gray-700">Lampu lalu lintas berwarna Merah</td>
+                            <td class="py-4 px-5 text-gray-700">Mobil dan motor harus berhenti</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-4 px-5 text-gray-700">Menekan saklar lampu</td>
+                            <td class="py-4 px-5 text-gray-700">Lampu ruangan menyala</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Contoh di Scratch -->
+            <div class="flex flex-col md:flex-row gap-6 items-center bg-gray-50 p-6 rounded-xl border border-gray-200 mb-8">
+                <div class="md:w-1/2">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Blok "IF" di Scratch</h3>
+                    <p class="mb-3 text-gray-700">Di Scratch, blok IF berwarna <strong>Oranye</strong>. Blok ini terlihat seperti huruf "C" atau mulut yang terbuka.</p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Bagian berbentuk <strong>segi enam</strong> (di atas) diisi dengan kondisi (contoh: menyentuh warna merah).</li>
+                        <li>Bagian <strong>mulut blok</strong> (di tengah) diisi dengan perintah yang akan dilakukan (contoh: karakter bergerak).</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 w-full">
+                    <img src="https://placehold.co/500x300/f97316/ffffff?text=Blok+IF+THEN+(Warna+Oranye)" 
+                         alt="Ilustrasi blok IF THEN Scratch berwarna oranye" 
+                         class="w-full rounded-lg shadow-sm border border-orange-200">
+                </div>
+            </div>
+
+            <!-- Video Tutorial Bagian 2 -->
+            <div class="bg-green-50 p-6 md:p-8 rounded-xl border border-green-100">
+                <h3 class="text-xl font-bold mb-2 text-green-900">🎥 Video Penjelasan: Logika IF di Scratch</h3>
+                <p class="mb-4 text-green-800">Silakan tonton video ini untuk melihat bagaimana blok IF bekerja. Jangan lupa nyalakan teks <strong>[CC]</strong> di pemutar video.</p>
+                
+                <div class="video-container shadow-md border border-gray-300">
+                    <!-- Video tutorial Scratch tentang penggunaan IF THEN -->
+                    <iframe src="https://www.youtube.com/embed/WBjUREbhzis?cc_load_policy=1&hl=id&rel=0" 
+                            title="Cara Penggunaan Block If Then di Scratch" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-200">
+            <h2 class="text-2xl md:text-3xl font-bold text-purple-700 border-b-2 border-purple-200 pb-3 mb-6">
+                3. Latihan Praktik: Mari Mencoba!
+            </h2>
+            
+            <p class="mb-6 text-lg">Sekarang buka aplikasi Scratch Anda. Cobalah 4 latihan di bawah ini untuk melihat bagaimana logika <strong>IF</strong> bekerja secara visual. Susun blok warnanya sesuai dengan petunjuk!</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Praktik 1 -->
+                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-3xl">⌨️</span>
+                        <h3 class="text-xl font-bold text-gray-900">Praktik 1: Menggerakkan Karakter</h3>
+                    </div>
+                    <p class="text-gray-700 mb-3">Buat agar karakter bergerak ke kanan setiap kali kita menekan tombol panah kanan di keyboard.</p>
+                    <div class="bg-white p-3 rounded border border-gray-200 font-mono text-sm mb-3">
+                        <span class="font-bold text-purple-700">Logika:</span><br>
+                        JIKA [Tombol Panah Kanan Ditekan]<br>MAKA [Bergerak maju / Ubah X sebesar 10]
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-gray-600 mb-1">Cari blok warna ini:</p>
+                        <ul class="text-sm space-y-1">
+                            <li>🟠 <span class="bg-orange-100 px-1 rounded">Control</span> : If ... Then</li>
+                            <li>🩵 <span class="bg-cyan-100 px-1 rounded">Sensing</span> : Key [right arrow] pressed?</li>
+                            <li>🔵 <span class="bg-blue-100 px-1 rounded">Motion</span> : Change x by 10</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Praktik 2 -->
+                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-3xl">🍎</span>
+                        <h3 class="text-xl font-bold text-gray-900">Praktik 2: Reaksi Menyentuh Benda</h3>
+                    </div>
+                    <p class="text-gray-700 mb-3">Tambahkan karakter Apel. Buat agar Kucing memunculkan teks balon "Nyamm!" saat menyentuh Apel.</p>
+                    <div class="bg-white p-3 rounded border border-gray-200 font-mono text-sm mb-3">
+                        <span class="font-bold text-purple-700">Logika:</span><br>
+                        JIKA [Menyentuh Apel]<br>MAKA [Katakan "Nyamm!" selama 2 detik]
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-gray-600 mb-1">Cari blok warna ini:</p>
+                        <ul class="text-sm space-y-1">
+                            <li>🟠 <span class="bg-orange-100 px-1 rounded">Control</span> : If ... Then</li>
+                            <li>🩵 <span class="bg-cyan-100 px-1 rounded">Sensing</span> : Touching [Apple]?</li>
+                            <li>🟣 <span class="bg-purple-100 px-1 rounded">Looks</span> : Say [Nyamm!] for 2 seconds</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Praktik 3 -->
+                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-3xl">🌋</span>
+                        <h3 class="text-xl font-bold text-gray-900">Praktik 3: Menghindari Bahaya</h3>
+                    </div>
+                    <p class="text-gray-700 mb-3">Gambar kotak merah (sebagai lava). Jika karakter menginjak warna merah, ia akan otomatis pindah kembali ke titik awal.</p>
+                    <div class="bg-white p-3 rounded border border-gray-200 font-mono text-sm mb-3">
+                        <span class="font-bold text-purple-700">Logika:</span><br>
+                        JIKA [Menyentuh warna Merah]<br>MAKA [Pergi ke X: 0, Y: 0]
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-gray-600 mb-1">Cari blok warna ini:</p>
+                        <ul class="text-sm space-y-1">
+                            <li>🟠 <span class="bg-orange-100 px-1 rounded">Control</span> : If ... Then</li>
+                            <li>🩵 <span class="bg-cyan-100 px-1 rounded">Sensing</span> : Touching color [merah]?</li>
+                            <li>🔵 <span class="bg-blue-100 px-1 rounded">Motion</span> : Go to x:0 y:0</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Praktik 4 -->
+                <div class="border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow bg-gray-50">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="text-3xl">🎭</span>
+                        <h3 class="text-xl font-bold text-gray-900">Praktik 4: Animasi Ganti Kostum</h3>
+                    </div>
+                    <p class="text-gray-700 mb-3">Setiap kali layar diklik menggunakan mouse, karakter akan berganti gaya (berganti kostum).</p>
+                    <div class="bg-white p-3 rounded border border-gray-200 font-mono text-sm mb-3">
+                        <span class="font-bold text-purple-700">Logika:</span><br>
+                        JIKA [Mouse diklik (mouse down)]<br>MAKA [Ganti ke kostum berikutnya]
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-gray-600 mb-1">Cari blok warna ini:</p>
+                        <ul class="text-sm space-y-1">
+                            <li>🟠 <span class="bg-orange-100 px-1 rounded">Control</span> : If ... Then</li>
+                            <li>🩵 <span class="bg-cyan-100 px-1 rounded">Sensing</span> : Mouse down?</li>
+                            <li>🟣 <span class="bg-purple-100 px-1 rounded">Looks</span> : Next costume</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-6 bg-yellow-50 p-4 border-l-4 border-yellow-400 rounded-r text-yellow-800">
+                <strong>💡 Tips Penting:</strong> Agar komputer terus mengecek perintah IF (JIKA) kalian, jangan lupa memasukkan blok "IF" ke dalam pelukan blok <strong>"Forever" (Selamanya)</strong> yang juga berwarna oranye!
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 text-center py-8 mt-8 border-t-4 border-blue-600">
+        <div class="max-w-4xl mx-auto px-6">
+            <p class="text-lg">&copy; 2026 Media Pembelajaran TIK Inklusif.</p>
+            <p class="text-sm mt-2 opacity-75">Dirancang khusus dengan mempertimbangkan kemudahan visual untuk siswa tunarungu.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
