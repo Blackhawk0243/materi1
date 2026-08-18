@@ -94,8 +94,14 @@
             margin-top: -3px;
         }
 
-        @keyframes catMoveRight { 0% { transform: translateX(0); } 100% { transform: translateX(220px); } }
-        .anim-cat-move { animation: catMoveRight 2.5s infinite linear; }
+        @keyframes catMoveRightLeft { 
+            0% { transform: translateX(50px); } 
+            25% { transform: translateX(180px); } 
+            50% { transform: translateX(180px); } 
+            75% { transform: translateX(20px); } 
+            100% { transform: translateX(50px); } 
+        }
+        .anim-cat-move { animation: catMoveRightLeft 4s infinite ease-in-out; }
 
         @keyframes catTouchApple { 0%, 100% { transform: translateX(0); } 30%, 70% { transform: translateX(130px); } }
         @keyframes sayNyamm { 0%, 29%, 71%, 100% { opacity: 0; } 30%, 70% { opacity: 1; } }
@@ -271,10 +277,11 @@ end
                         <span class="text-3xl">⌨️</span>
                         <h3 class="text-xl font-bold text-gray-900">Praktik 1: Menggerakkan Karakter</h3>
                     </div>
-                    <p class="text-gray-700 mb-3 flex-grow">Buat agar karakter bergerak ke kanan setiap kali kita menekan tombol panah kanan di keyboard.</p>
+                    <p class="text-gray-700 mb-3 flex-grow">Buat agar karakter bisa bergerak ke kanan dan ke kiri setiap kali kita menekan tombol panah kanan atau kiri di keyboard.</p>
                     <div class="bg-white p-3 rounded border border-gray-200 font-mono text-sm mb-3">
                         <span class="font-bold text-purple-700">Logika:</span><br>
-                        JIKA [Tombol Panah Kanan Ditekan]<br>MAKA [Bergerak maju / Ubah X sebesar 10]
+                        JIKA [Panah Kanan Ditekan] MAKA [Ubah X sebesar 10]<br>
+                        JIKA [Panah Kiri Ditekan] MAKA [Ubah X sebesar -10]
                     </div>
                     <div class="mt-auto">
                         <p class="font-bold text-sm text-gray-600 mb-2">Bentuk Blok Asli:</p>
@@ -284,6 +291,9 @@ when green flag clicked
 forever
   if &lt;key [right arrow v] pressed?&gt; then
     change x by (10)
+  end
+  if &lt;key [left arrow v] pressed?&gt; then
+    change x by (-10)
   end
 end
                             </pre>
@@ -310,7 +320,7 @@ end
                                     <line x1="75" y1="55" x2="95" y2="50" stroke="#4a2e10" stroke-width="2" stroke-linecap="round"/>
                                     <line x1="75" y1="62" x2="95" y2="62" stroke="#4a2e10" stroke-width="2" stroke-linecap="round"/>
                                 </svg>
-                                <span class="absolute top-2 right-2 text-gray-400 text-xs font-bold animate-pulse">Tekan ➡️</span>
+                                <span class="absolute top-2 right-2 text-gray-400 text-xs font-bold animate-pulse">Tekan ⬅️ ➡️</span>
                             </div>
                         </div>
                     </div>
