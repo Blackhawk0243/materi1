@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Belajar Pemrograman: Scratch dan Logika IF</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/scratchblocks@3.6.2/build/scratchblocks.min.js"></script>
     <style>
         body { 
             font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -28,6 +29,15 @@
             left: 0;
             width: 100%;
             height: 100%;
+        }
+        .scratch-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            overflow-x: auto;
         }
     </style>
 </head>
@@ -150,9 +160,13 @@
                     </ul>
                 </div>
                 <div class="md:w-1/2 w-full">
-                    <img src="https://placehold.co/500x300/f97316/ffffff?text=Blok+IF+THEN+(Warna+Oranye)" 
-                         alt="Ilustrasi blok IF THEN Scratch berwarna oranye" 
-                         class="w-full rounded-lg shadow-sm border border-orange-200">
+                    <div class="scratch-wrapper border border-orange-200 shadow-sm">
+                        <pre class="blocks">
+if &lt;touching color [#ff0000]?&gt; then
+  move (10) steps
+end
+                        </pre>
+                    </div>
                 </div>
             </div>
 
@@ -194,13 +208,18 @@
                         <span class="font-bold text-purple-700">Logika:</span><br>
                         JIKA [Tombol Panah Kanan Ditekan]<br>MAKA [Bergerak maju / Ubah X sebesar 10]
                     </div>
-                    <div>
-                        <p class="font-bold text-sm text-gray-600 mb-1">Cari blok warna ini:</p>
-                        <ul class="text-sm space-y-1">
-                            <li>🟠 <span class="bg-orange-100 px-1 rounded">Control</span> : If ... Then</li>
-                            <li>🩵 <span class="bg-cyan-100 px-1 rounded">Sensing</span> : Key [right arrow] pressed?</li>
-                            <li>🔵 <span class="bg-blue-100 px-1 rounded">Motion</span> : Change x by 10</li>
-                        </ul>
+                    <div class="mt-4">
+                        <p class="font-bold text-sm text-gray-600 mb-2">Bentuk Blok Asli:</p>
+                        <div class="scratch-wrapper border border-gray-200">
+                            <pre class="blocks">
+when green flag clicked
+forever
+  if &lt;key [right arrow v] pressed?&gt; then
+    change x by (10)
+  end
+end
+                            </pre>
+                        </div>
                     </div>
                 </div>
 
@@ -215,13 +234,18 @@
                         <span class="font-bold text-purple-700">Logika:</span><br>
                         JIKA [Menyentuh Apel]<br>MAKA [Katakan "Nyamm!" selama 2 detik]
                     </div>
-                    <div>
-                        <p class="font-bold text-sm text-gray-600 mb-1">Cari blok warna ini:</p>
-                        <ul class="text-sm space-y-1">
-                            <li>🟠 <span class="bg-orange-100 px-1 rounded">Control</span> : If ... Then</li>
-                            <li>🩵 <span class="bg-cyan-100 px-1 rounded">Sensing</span> : Touching [Apple]?</li>
-                            <li>🟣 <span class="bg-purple-100 px-1 rounded">Looks</span> : Say [Nyamm!] for 2 seconds</li>
-                        </ul>
+                    <div class="mt-4">
+                        <p class="font-bold text-sm text-gray-600 mb-2">Bentuk Blok Asli:</p>
+                        <div class="scratch-wrapper border border-gray-200">
+                            <pre class="blocks">
+when green flag clicked
+forever
+  if &lt;touching [Apple v]?&gt; then
+    say [Nyamm!] for (2) seconds
+  end
+end
+                            </pre>
+                        </div>
                     </div>
                 </div>
 
@@ -236,13 +260,18 @@
                         <span class="font-bold text-purple-700">Logika:</span><br>
                         JIKA [Menyentuh warna Merah]<br>MAKA [Pergi ke X: 0, Y: 0]
                     </div>
-                    <div>
-                        <p class="font-bold text-sm text-gray-600 mb-1">Cari blok warna ini:</p>
-                        <ul class="text-sm space-y-1">
-                            <li>🟠 <span class="bg-orange-100 px-1 rounded">Control</span> : If ... Then</li>
-                            <li>🩵 <span class="bg-cyan-100 px-1 rounded">Sensing</span> : Touching color [merah]?</li>
-                            <li>🔵 <span class="bg-blue-100 px-1 rounded">Motion</span> : Go to x:0 y:0</li>
-                        </ul>
+                    <div class="mt-4">
+                        <p class="font-bold text-sm text-gray-600 mb-2">Bentuk Blok Asli:</p>
+                        <div class="scratch-wrapper border border-gray-200">
+                            <pre class="blocks">
+when green flag clicked
+forever
+  if &lt;touching color [#ff0000]?&gt; then
+    go to x: (0) y: (0)
+  end
+end
+                            </pre>
+                        </div>
                     </div>
                 </div>
 
@@ -257,13 +286,18 @@
                         <span class="font-bold text-purple-700">Logika:</span><br>
                         JIKA [Mouse diklik (mouse down)]<br>MAKA [Ganti ke kostum berikutnya]
                     </div>
-                    <div>
-                        <p class="font-bold text-sm text-gray-600 mb-1">Cari blok warna ini:</p>
-                        <ul class="text-sm space-y-1">
-                            <li>🟠 <span class="bg-orange-100 px-1 rounded">Control</span> : If ... Then</li>
-                            <li>🩵 <span class="bg-cyan-100 px-1 rounded">Sensing</span> : Mouse down?</li>
-                            <li>🟣 <span class="bg-purple-100 px-1 rounded">Looks</span> : Next costume</li>
-                        </ul>
+                    <div class="mt-4">
+                        <p class="font-bold text-sm text-gray-600 mb-2">Bentuk Blok Asli:</p>
+                        <div class="scratch-wrapper border border-gray-200">
+                            <pre class="blocks">
+when green flag clicked
+forever
+  if &lt;mouse down?&gt; then
+    next costume
+  end
+end
+                            </pre>
+                        </div>
                     </div>
                 </div>
 
@@ -282,6 +316,15 @@
             <p class="text-sm mt-2 opacity-75">Dirancang khusus dengan mempertimbangkan kemudahan visual untuk siswa tunarungu.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            scratchblocks.renderMatching('pre.blocks', {
+                style: 'scratch3',     // Render gaya grafis Scratch 3.0 yang modern
+                scale: 0.9             // Skala blok disesuaikan agar rapi di layar HP maupun Laptop
+            });
+        });
+    </script>
 
 </body>
 </html>
